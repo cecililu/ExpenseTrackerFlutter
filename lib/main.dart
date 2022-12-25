@@ -21,14 +21,18 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-         Card(
-          child: Text("Chart Position"),
+          Container(
+             width: double.infinity,
+            child: Card(
+              child: Text("Chart Position"),
+              color: Colors.deepOrangeAccent,
+            ),
+          ),
+         
+          Card(
+            child: Text("LIST OF TX"),
             elevation: 5,
-         ),
-         Card(
-          child: Text("LIST OF TX"),
-           elevation: 5,
-         )
+          )
         ],
       ),
     );
