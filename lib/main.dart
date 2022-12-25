@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  final List
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +21,8 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
              width: double.infinity,
@@ -30,9 +33,11 @@ class MyHomePage extends StatelessWidget {
           ),
          
           Card(
+            color: Colors.blueAccent,
             child: Text("LIST OF TX"),
             elevation: 5,
-          )
+          ),
+           
         ],
       ),
     );
