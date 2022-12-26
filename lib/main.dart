@@ -36,10 +36,23 @@ class MyHomePage extends StatelessWidget {
             padding: EdgeInsets.all(20),
             color: Colors.deepOrangeAccent,
             child: Card(
-              child: Text("Chart Position",textAlign: TextAlign.center,),
-              
+              child: Text(
+                "Chart Position",
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
+          Card(
+              child: Container(
+                padding: EdgeInsets.all(30),
+            child: Column(
+              children: <Widget>[
+                Text("Add new Entry"),
+                TextField(autocorrect: true,autofocus: true,cursorColor: Colors.red,decoration: InputDecoration(labelText: "Expense title"),),
+                TextField(autocorrect: true,autofocus: true,cursorColor: Colors.red,decoration: InputDecoration(labelText: "Expense Amount"),),
+              ],
+            ),
+          )),
           Column(
               children: transactions.map((transaction) {
             return Card(
@@ -64,11 +77,9 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
                 Column(
-                  crossAxisAlignment:  CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
-                      
-                      
                       child: Column(
                         children: <Widget>[
                           Text(
@@ -78,10 +89,11 @@ class MyHomePage extends StatelessWidget {
                                 fontSize: 20,
                                 color: Colors.black),
                           ),
-                          Text(DateFormat().format(transaction.date),
-
+                          Text(
+                              DateFormat('yMMMMEEEEd').format(transaction.date),
                               style: TextStyle(
-                                  fontWeight: FontWeight.w500,fontSize: 10,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 10,
                                   color: Colors.grey)),
                         ],
                       ),
