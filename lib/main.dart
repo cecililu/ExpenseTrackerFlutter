@@ -44,12 +44,32 @@ class MyHomePage extends StatelessWidget {
           ),
           Card(
               child: Container(
-                padding: EdgeInsets.all(30),
+            padding: EdgeInsets.all(30),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
                 Text("Add new Entry"),
-                TextField(autocorrect: true,autofocus: true,cursorColor: Colors.red,decoration: InputDecoration(labelText: "Expense title"),),
-                TextField(autocorrect: true,autofocus: true,cursorColor: Colors.red,decoration: InputDecoration(labelText: "Expense Amount"),),
+                TextField(
+                  autocorrect: true,
+                  autofocus: true,
+                  cursorColor: Colors.red,
+                  decoration: InputDecoration(labelText: "Expense title"),
+                ),
+                TextField(
+                  autocorrect: true,
+                  autofocus: true,
+                  cursorColor: Colors.red,
+                  decoration: InputDecoration(labelText: "Expense Amount"),
+                ),
+                TextButton(
+                  child: Text('Add'),
+                  onPressed: () {},
+                  style: ButtonStyle(
+                  
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+                    foregroundColor: MaterialStateProperty.all<Color>(Colors.white)
+                  ),
+                )
               ],
             ),
           )),
