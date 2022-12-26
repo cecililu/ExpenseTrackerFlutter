@@ -21,11 +21,16 @@ class MyHomePage extends StatelessWidget {
     Transaction(
         id: 't2', title: 'New Jordans 2', amount: 89.33, date: DateTime.now()),
   ];
+
+  String titleInput;
+  String amountInput;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+         backgroundColor: Colors.deepOrange,
+        title: Text('Expense Tracker',textAlign: TextAlign.center,),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -44,7 +49,7 @@ class MyHomePage extends StatelessWidget {
           ),
           Card(
               child: Container(
-            padding: EdgeInsets.all(30),
+            margin: EdgeInsets.all(30),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
@@ -54,23 +59,31 @@ class MyHomePage extends StatelessWidget {
                   autofocus: true,
                   cursorColor: Colors.red,
                   decoration: InputDecoration(labelText: "Expense title"),
+                  onChanged: ((value) {
+                    titleInput = value;
+                  }),
                 ),
                 TextField(
                   autocorrect: true,
                   autofocus: true,
                   cursorColor: Colors.red,
                   decoration: InputDecoration(labelText: "Expense Amount"),
+                  onChanged: (val) {
+                    amountInput = val;
+                  },
                 ),
                 TextButton(
                   child: Text('Add'),
-                  onPressed: () {},
+                  onPressed: () {
+                    
+                  },
                   style: ButtonStyle(
-                  
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
-                    foregroundColor: MaterialStateProperty.all<Color>(Colors.white)
-                  ),
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.red),
+                      foregroundColor:
+                          MaterialStateProperty.all<Color>(Colors.white)),
                 )
-              ],
+              ],  
             ),
           )),
           Column(
