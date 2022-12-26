@@ -22,10 +22,10 @@ class _UserTransactionState extends State<UserTransaction> {
         id: 't2', title: 'New Jordans 2', amount: 89.33, date: DateTime.now()),
   ];
  
-   void _addNewTransaction(String titletx,String amounttx){
+   void _addNewTransaction(String titletx,double amounttx){
        final newTrans=Transaction(
         title:titletx,
-        amount:double.parse(amounttx),
+        amount:amounttx,
         id:DateTime.now().toString(),
         date: DateTime.now()
       

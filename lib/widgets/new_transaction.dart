@@ -36,7 +36,7 @@ class NewTransactionForm extends StatelessWidget {
                 TextButton(
                   child: Text('Add'),
                   onPressed: () {
-                    addTxt(titleContoller.text,inputContoller);
+                    addTxt( titleContoller.text, double.parse(inputContoller.text));
                   },
                   style: ButtonStyle(
                       backgroundColor:
