@@ -1,12 +1,38 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_complete_guide/models/transaction.dart';
 
-class NewTransaction extends StatelessWidget {
-  const NewTransaction({Key key}) : super(key: key);
+import 'package:flutter_complete_guide/widgets/new_transaction.dart';
+import 'package:flutter_complete_guide/widgets/transactionList.dart';
+
+
+class UserTransaction extends StatefulWidget {
+  const UserTransaction({Key key}) : super(key: key);
+
+
+  @override
+  State<UserTransaction> createState() => _UserTransactionState();
+}
+
+class _UserTransactionState extends State<UserTransaction> {
+
+   final List<Transaction> _userTransactions = [
+    Transaction(
+        id: 't1', title: 'New Jordans 4s', amount: 89.33, date: DateTime.now()),
+    Transaction(
+        id: 't2', title: 'New Jordans 2', amount: 89.33, date: DateTime.now()),
+  ];
+ 
+  void _addNewTransaction(){
+     
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Column(
+      children: <Widget>[
+         NewTransactionForm(),
+         TransactionList(_userTransactions)
+      ],
+    );
   }
 }
