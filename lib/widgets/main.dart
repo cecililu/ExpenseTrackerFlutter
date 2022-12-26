@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/widgets/new_transaction.dart';
 import 'package:flutter_complete_guide/widgets/transactionList.dart';
+import 'package:flutter_complete_guide/widgets/user_transaction.dart';
 
 
 void main() => runApp(MyApp());
@@ -39,8 +40,7 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
           ),
-          
-          
+          UserTransaction()
         ],
       ),
     );

@@ -2,11 +2,13 @@
 import 'package:flutter/material.dart';
 class NewTransactionForm extends StatelessWidget {
 
- NewTransactionForm({Key key}) : super(key: key);
+ NewTransactionForm(this.addTxt);
     
  final titleContoller=TextEditingController();
  final inputContoller=TextEditingController();
- 
+
+
+ final Function addTxt;
   
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class NewTransactionForm extends StatelessWidget {
                 TextButton(
                   child: Text('Add'),
                   onPressed: () {
-                    
+                    addTxt(titleContoller.text,inputContoller);
                   },
                   style: ButtonStyle(
                       backgroundColor:
