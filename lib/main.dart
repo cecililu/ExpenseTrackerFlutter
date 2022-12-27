@@ -3,7 +3,6 @@ import 'package:flutter_complete_guide/widgets/new_transaction.dart';
 import 'package:flutter_complete_guide/widgets/transactionList.dart';
 import 'package:flutter_complete_guide/widgets/user_transaction.dart';
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -17,32 +16,35 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-         backgroundColor: Colors.deepOrange,
-        title: Text('Expense Tracker',textAlign: TextAlign.center,),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            width: double.infinity,
-            padding: EdgeInsets.all(20),
-            color: Colors.deepOrangeAccent,
-            child: Card(
-              child: Text(
-                "Chart Position",
-                textAlign: TextAlign.center,
-              ),
-            ),
+        appBar: AppBar(
+          backgroundColor: Colors.deepOrange,
+          title: Text(
+            'Expense Tracker',
+            textAlign: TextAlign.center,
           ),
-          UserTransaction()
-        ],
-      ),
-    );
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                width: double.infinity,
+                padding: EdgeInsets.all(20),
+                color: Colors.deepOrangeAccent,
+                child: Card(
+                  child: Text(
+                    "Chart Position",
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+              UserTransaction()
+            ],
+          ),
+        ));
   }
 }
