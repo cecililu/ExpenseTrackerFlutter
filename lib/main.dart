@@ -20,6 +20,9 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          actions: <Widget>[
+            IconButton(onPressed: () {}, icon: Icon(Icons.add))
+          ],
           backgroundColor: Colors.deepOrange,
           title: Text(
             'Expense Tracker',
@@ -45,6 +48,11 @@ class MyHomePage extends StatelessWidget {
               UserTransaction()
             ],
           ),
-        ));
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {  },
+          child: Icon(Icons.add)),
+        );
   }
 }
