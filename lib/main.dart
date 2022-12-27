@@ -45,7 +45,10 @@ class _MyHomePageState extends State<MyHomePage> {
         context: ctx,
         builder: (bctx) {
           return GestureDetector(
-              onTap: () {}, child: NewTransactionForm(_addNewTransaction));
+              onTap: () {},
+              behavior: HitTestBehavior.opaque,
+               child: NewTransactionForm(_addNewTransaction));
+              
         });
   }
 
