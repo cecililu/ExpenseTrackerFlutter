@@ -14,10 +14,7 @@ class TransactionList extends StatelessWidget {
                 children: <Widget>[
                   Text("No data Added YetZZZZZZ"),
                   SizedBox(height: 10,),
-                  Container(
-                      height: 200,
-                      child: Image.asset('assets/image/download.jepg',
-                          fit: BoxFit.cover)),
+                  
                 ],
               )
             : ListView.builder(
