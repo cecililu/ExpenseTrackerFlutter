@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 
-class NewTransactionForm extends StatelessWidget {
+class NewTransactionForm extends StatefulWidget {
+  
   NewTransactionForm(this.addTxt);
-
-  final titleContoller = TextEditingController();
-  final inputContoller = TextEditingController();
+  
 
   final Function addTxt;
+
+  @override
+  State<NewTransactionForm> createState() => _NewTransactionFormState();
+}
+
+class _NewTransactionFormState extends State<NewTransactionForm> {
+  final titleContoller = TextEditingController();
+
+  final inputContoller = TextEditingController();
 
   void submitData() {
    
@@ -16,7 +24,8 @@ class NewTransactionForm extends StatelessWidget {
       return;
     }
 
-    addTxt(enteredTitle, enteredinput);
+    widget.addTxt(enteredTitle, enteredinput);
+    Navigator.of(context).pop();
   }
 
   @override
