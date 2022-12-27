@@ -9,7 +9,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       title: 'Flutter App',
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        accentColor: Colors.amber,
+      ),
       home: MyHomePage(),
     );
   }
@@ -60,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () => _startAddNewTranasction(context),
               icon: Icon(Icons.add))
         ],
-        backgroundColor: Colors.deepOrange,
+        backgroundColor: Theme.of(context).primaryColorDark,
         title: Text(
           'Expense Tracker',
           textAlign: TextAlign.center,
