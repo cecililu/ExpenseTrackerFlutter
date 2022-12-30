@@ -17,7 +17,7 @@ class Chart extends StatelessWidget {
     return List.generate(7, (index) {
       
       final weekDay = DateTime.now().subtract(Duration(days: index));
-      double totalSum;
+      double totalSum=0;
       for (var i = 0; i < recentTransaction.length; i++) {
         if (recentTransaction[i].date.day == weekDay.day &&
             recentTransaction[i].date.month == weekDay.month &&
@@ -52,9 +52,9 @@ class Chart extends StatelessWidget {
         child: Row(
             children: groupedTransaction.map((data) {
               print(data['amount']);
-            //  double sp = (data['amount'] as double) / maxSpending;
-            String day='${data['day']}';
-          return Bar(label:day,spendingAmount: 12,spendingPercent: 1,);
+              double sp = (data['amount'] as double) / maxSpending;
+              String day='${data['day']}';
+          return Bar(label:day,spendingAmount:data['amount'] as double ,spendingPercent: sp,);
         }).toList()));
   }
 }

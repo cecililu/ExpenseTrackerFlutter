@@ -30,7 +30,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _userTransactions = [];
+  final List<Transaction> _userTransactions = [
+    Transaction(id: DateTime.now().toIso8601String(),amount: 200,date: DateTime.now(),title: 'Jordan 1')
+  ];
   List<Transaction> get _recentTranasctions {
     return _userTransactions.where((tx) {
       return tx.date.isAfter(DateTime.now().subtract(Duration(days: 7)));
