@@ -50,7 +50,7 @@ class TransactionList extends StatelessWidget {
                                 Text(
                                   userTransactions[index].title,
                                   style: TextStyle(
-                                      fontWeight: FontWeight.w700,
+                                      fontWeight: FontWeight.w900,
                                       fontSize: 20,
                                       color: Colors.black),
                                 ),
@@ -58,7 +58,7 @@ class TransactionList extends StatelessWidget {
                                     DateFormat('yMMMMEEEEd')
                                         .format(userTransactions[index].date),
                                     style: TextStyle(
-                                        fontWeight: FontWeight.w500,
+                                        fontWeight: FontWeight.w800,
                                         fontSize: 10,
                                         color: Colors.grey)),
                               ],

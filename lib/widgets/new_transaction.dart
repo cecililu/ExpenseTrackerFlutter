@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NewTransactionForm extends StatefulWidget {
-  
   NewTransactionForm(this.addTxt);
-  
 
   final Function addTxt;
 
@@ -12,12 +10,19 @@ class NewTransactionForm extends StatefulWidget {
 }
 
 class _NewTransactionFormState extends State<NewTransactionForm> {
-  final  titleContoller = TextEditingController();
+  final titleContoller = TextEditingController();
 
   final inputContoller = TextEditingController();
 
+  void _datepicker() {
+    showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2021, 1, 1),
+        lastDate: DateTime.now());
+  }
+
   void submitData() {
-   
     final enteredTitle = titleContoller.text;
     final enteredinput = double.parse(inputContoller.text);
     if (enteredTitle.isEmpty || enteredinput <= 0) {
@@ -54,11 +59,26 @@ class _NewTransactionFormState extends State<NewTransactionForm> {
             keyboardType: TextInputType.number,
             onSubmitted: (_) => submitData(),
           ),
+          Container(
+              height: 70,
+              child: Row(children: [
+                Text("No date chosen"),
+                TextButton(
+                  onPressed: _datepicker,
+                  child: Text('Choose a date'),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          Color.fromARGB(255, 72, 5, 99)),
+                      foregroundColor:
+                          MaterialStateProperty.all<Color>(Colors.white)),
+                ),
+              ])),
           TextButton(
             child: Text('Add'),
             onPressed: submitData,
             style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    Color.fromARGB(255, 72, 5, 99)),
                 foregroundColor:
                     MaterialStateProperty.all<Color>(Colors.white)),
           )

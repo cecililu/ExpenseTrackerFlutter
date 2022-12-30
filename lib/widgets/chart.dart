@@ -55,8 +55,7 @@ class Chart extends StatelessWidget {
           elevation: 18,
           
           
-          child: Row(
-            
+          child: Row(   
              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: groupedTransaction.map((data) {
                 print(data['amount']);

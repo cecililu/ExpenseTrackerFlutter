@@ -81,6 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
+
           children: <Widget>[
             Chart( _recentTranasctions),
             TransactionList(_userTransactions)
