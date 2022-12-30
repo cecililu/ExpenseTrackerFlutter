@@ -20,7 +20,7 @@ class Bar extends StatelessWidget {
     print(spendingAmount);
     
     return Container(
-      padding: EdgeInsets.fromLTRB(3, 2, 3, 2),
+      padding: EdgeInsets.fromLTRB(5, 4, 6, 2),
     
       margin: EdgeInsets.symmetric(vertical: 0,horizontal: .5),
       color: Color.fromARGB(200, 62, 12, 94),

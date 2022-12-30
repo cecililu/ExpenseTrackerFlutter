@@ -49,7 +49,7 @@ class Chart extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(5),
       child: Container(
-        padding: EdgeInsets.all(28),
+        padding: EdgeInsets.all(10),
         width: double.infinity,
         child:Card(
           elevation: 18,
@@ -57,7 +57,7 @@ class Chart extends StatelessWidget {
           
           child: Row(
             
-             crossAxisAlignment: CrossAxisAlignment.center,
+             mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: groupedTransaction.map((data) {
                 print(data['amount']);
                 double sp = (data['amount'] as double) / maxSpending;
