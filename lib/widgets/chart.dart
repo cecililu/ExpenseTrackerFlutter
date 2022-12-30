@@ -38,7 +38,7 @@ class Chart extends StatelessWidget {
   double get maxSpending {
     return groupedTransaction.fold(0.0, (sum, it) {
       var ns = (sum) + (it['amount']);
-      return 10;
+      return ns;
     });
   }
 
@@ -46,15 +46,19 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     print("Grouped tranasction");
     print(groupedTransaction);
-    return Card(
-        elevation: 6,
-        
-        child: Row(
-            children: groupedTransaction.map((data) {
-              print(data['amount']);
-              double sp = (data['amount'] as double) / maxSpending;
-              String day='${data['day']}';
-          return Bar(label:day,spendingAmount:data['amount'] as double ,spendingPercent: sp,);
-        }).toList()));
+    return Container(
+      child: Card(
+          elevation: 6,
+          
+          child: Row(
+               crossAxisAlignment: CrossAxisAlignment.start,
+            
+              children: groupedTransaction.map((data) {
+                print(data['amount']);
+                double sp = (data['amount'] as double) / maxSpending;
+                String day='${data['day']}';
+            return Bar(label:day,spendingAmount:data['amount'] as double ,spendingPercent: sp,);
+          }).toList())),
+    );
   }
 }

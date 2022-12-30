@@ -14,32 +14,42 @@ class Bar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('the percent');
+    print(spendingPercent);
+     print('the amount');
+    print(spendingAmount);
     return Column(
       
       children: [
       Text('\$ ${spendingAmount}'),
+      
       SizedBox(height: 4,),
      Container(
       height: 60,
       width: 07,
-      child: Stack(
-        children: [
-         Container(
-              decoration: BoxDecoration(
-              border: Border.all(color:Colors.green,width: 1),
-              borderRadius: BorderRadius.circular(20)
-              ),
-             
-          ),
-          FractionallySizedBox(
-             heightFactor: spendingPercent,
-             child:Container(
-             decoration: BoxDecoration(color: Colors.red,
-             borderRadius: BorderRadius.circular(20)),
-          )) 
+      child: Container(
+        child: Stack(
           
-      ],),
-     )
+          children: [
+           Container(
+                decoration: BoxDecoration(
+                border: Border.all(color:Colors.green,width: 1),
+                borderRadius: BorderRadius.circular(20)
+                ),
+           
+            ),
+            FractionallySizedBox(
+              
+               heightFactor: spendingPercent,
+               child:Container(
+               decoration: BoxDecoration(color: Colors.red,
+               borderRadius: BorderRadius.circular(20)),
+            )) 
+            
+        ],),
+      ),
+     ),
+      Text('\% ${spendingPercent*100}',),
     ],);
   }
 }
