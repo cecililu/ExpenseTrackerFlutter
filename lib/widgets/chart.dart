@@ -47,17 +47,24 @@ class Chart extends StatelessWidget {
     print("Grouped tranasction");
     print(groupedTransaction);
     return Container(
+      padding: EdgeInsets.all(5),
       child: Card(
-          elevation: 6,
+          elevation: 18,
           
           child: Row(
-               crossAxisAlignment: CrossAxisAlignment.start,
+             crossAxisAlignment: CrossAxisAlignment.center,
             
               children: groupedTransaction.map((data) {
                 print(data['amount']);
                 double sp = (data['amount'] as double) / maxSpending;
                 String day='${data['day']}';
-            return Bar(label:day,spendingAmount:data['amount'] as double ,spendingPercent: sp,);
+            return Container(
+              child: Bar(
+                label: day,
+                spendingAmount: data['amount'] as double,
+                spendingPercent: sp,
+              ),
+            );
           }).toList())),
     );
   }

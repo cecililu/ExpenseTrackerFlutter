@@ -18,12 +18,22 @@ class Bar extends StatelessWidget {
     print(spendingPercent);
      print('the amount');
     print(spendingAmount);
-    return Column(
+    
+    return Container(
+      padding: EdgeInsets.fromLTRB(3, 2, 3, 2),
+    
+      margin: EdgeInsets.symmetric(vertical: 0,horizontal: .5),
+      color: Color.fromARGB(200, 62, 12, 94),
+      child: Column(
       
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-      Text('\$ ${spendingAmount}'),
+      Text('\$ ${spendingAmount.truncate()}',textAlign: TextAlign.center,style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 13,
+                                        color: Colors.white)),
       
-      SizedBox(height: 4,),
+      SizedBox(height: 10,),
      Container(
       height: 60,
       width: 07,
@@ -49,7 +59,15 @@ class Bar extends StatelessWidget {
         ],),
       ),
      ),
-      Text('\% ${spendingPercent*100}',),
-    ],);
+      Text('\% ${(spendingPercent*100).toStringAsFixed(1)}',style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 13,
+                                        color: Colors.white)),
+      Text(' ${label}',style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 13,
+                                        color: Colors.white)),
+    ],),
+    );
   }
 }
