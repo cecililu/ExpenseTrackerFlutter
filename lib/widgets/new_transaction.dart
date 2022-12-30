@@ -37,11 +37,11 @@ class _NewTransactionFormState extends State<NewTransactionForm> {
   void submitData() {
     final enteredTitle = titleContoller.text;
     final enteredinput = double.parse(inputContoller.text);
-    if (enteredTitle.isEmpty || enteredinput <= 0) {
+    if (enteredTitle.isEmpty || enteredinput <= 0|| _selectedDate==null) {
       return;
     }
 
-    widget.addTxt(enteredTitle, enteredinput);
+    widget.addTxt(enteredTitle, enteredinput,_selectedDate);
     Navigator.of(context).pop();
   }
 
@@ -73,8 +73,14 @@ class _NewTransactionFormState extends State<NewTransactionForm> {
           ),
           Container(
               height: 70,
-              child: Row(children: [
-                Text(_selectedDate==null?"No date chosen":DateFormat.yMEd(_selectedDate)),
+              child: Row(
+                
+                children: [
+                Expanded(
+                  child:
+                    Text(_selectedDate==null?"No date chosen : ": "Date chosen  :"+DateFormat.yMEd().format(_selectedDate)),
+                  
+                ),
                 TextButton(
                   onPressed: _datepicker,
                   child: Text('Choose a date'),
