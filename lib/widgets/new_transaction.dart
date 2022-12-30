@@ -12,7 +12,7 @@ class NewTransactionForm extends StatefulWidget {
 }
 
 class _NewTransactionFormState extends State<NewTransactionForm> {
-  final titleContoller = TextEditingController();
+  final  titleContoller = TextEditingController();
 
   final inputContoller = TextEditingController();
 

@@ -53,8 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
         context: ctx,
         builder: (bctx) {
           return GestureDetector(
-              onTap: () {},
-              behavior: HitTestBehavior.opaque,
+              
               child: NewTransactionForm(_addNewTransaction));
         });
   }
@@ -78,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Chart(recentTransaction: _recentTranasctions),
+            Chart( _recentTranasctions),
             TransactionList(_userTransactions)
           ],
         ),

@@ -4,8 +4,15 @@ import 'package:flutter_complete_guide/widgets/Bar.dart';
 import 'package:intl/intl.dart';
 
 class Chart extends StatelessWidget {
-  Chart({Key key, this.recentTransaction}) : super(key: key);
-  final List <Transaction> recentTransaction;
+   
+   List <Transaction> recentTransaction;
+  
+   Chart(_recentTransaction) {
+    this.recentTransaction=_recentTransaction;
+  }
+ 
+ 
+ 
   List<Map<String, Object>> get groupedTransaction {
     return List.generate(7, (index) {
       
@@ -37,6 +44,7 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("Grouped tranasction");
     print(groupedTransaction);
     return Card(
         elevation: 6,
@@ -44,8 +52,9 @@ class Chart extends StatelessWidget {
         child: Row(
             children: groupedTransaction.map((data) {
               print(data['amount']);
-            // double sp = (data['amount'] as double) / maxSpending;
-          return Text('${data['day']}'+''+data['amount']);
+            //  double sp = (data['amount'] as double) / maxSpending;
+            String day='${data['day']}';
+          return Bar(label:day,spendingAmount: 12,spendingPercent: 1,);
         }).toList()));
   }
 }
