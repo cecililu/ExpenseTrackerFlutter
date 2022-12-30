@@ -36,7 +36,7 @@ class Bar extends StatelessWidget {
       SizedBox(height: 10,),
      Container(
       height: 60,
-      width: 07,
+      width: 12,
       child: Container(
         child: Stack(
           
@@ -59,10 +59,10 @@ class Bar extends StatelessWidget {
         ],),
       ),
      ),
-      Text('\% ${(spendingPercent*100).toStringAsFixed(1)}',style: TextStyle(
+      Text('\% ${(spendingPercent*100).toStringAsFixed(1)=='0.0'?'0.00':(spendingPercent*100).toStringAsFixed(1)}',style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                         fontSize: 13,
-                                        color: Colors.white)),
+                                        color: Colors.white,)),
       Text(' ${label}',style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                         fontSize: 13,
