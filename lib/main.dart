@@ -10,13 +10,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
       title: 'Flutter App',
       theme: ThemeData(
         primarySwatch: Colors.purple,
         accentColor: Colors.amber,
         fontFamily: 'Quicksand',
-        appBarTheme: AppBarTheme(textTheme: ThemeData.light().textTheme.copyWith(titleLarge: TextStyle(fontFamily: 'Opensans',fontSize: 200))),
+        appBarTheme: AppBarTheme(
+            textTheme: ThemeData.light().textTheme.copyWith(
+                titleLarge: TextStyle(fontFamily: 'Opensans', fontSize: 200))),
       ),
       home: MyHomePage(),
     );
@@ -29,16 +30,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  @override
-  final List<Transaction> _userTransactions = [
-   
-  ];
-  List <Transaction> get _recentTranasctions{
-    return _userTransactions.where((tx){
+  final List<Transaction> _userTransactions = [];
+  List<Transaction> get _recentTranasctions {
+    return _userTransactions.where((tx) {
       return tx.date.isAfter(DateTime.now().subtract(Duration(days: 7)));
     }).toList();
   }
-  
+
   void _addNewTransaction(String titletx, double amounttx) {
     final newTrans = Transaction(
         title: titletx,
@@ -57,8 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
           return GestureDetector(
               onTap: () {},
               behavior: HitTestBehavior.opaque,
-               child: NewTransactionForm(_addNewTransaction));
-              
+              child: NewTransactionForm(_addNewTransaction));
         });
   }
 
