@@ -4,7 +4,9 @@ import '../models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> userTransactions;
-  TransactionList(this.userTransactions);
+  
+ final  Function _deleteTransaction;
+  TransactionList(this.userTransactions,this._deleteTransaction);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,14 +53,17 @@ class TransactionList extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: [
                                     Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.symmetric(vertical:2.0,horizontal: 0),
                                           child: Text(
                                             userTransactions[index].title,
+                                            textAlign: TextAlign.left,
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w900,
                                                 fontSize: 20,
+                        
                                                 color: Colors.black),
                                           ),
                                         ),
@@ -74,7 +79,7 @@ class TransactionList extends StatelessWidget {
                                        Padding(
                                         padding: EdgeInsets.symmetric(vertical: 10,horizontal: 12),
                                          child:
-                                           IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.red),
+                                           IconButton(onPressed: (){_deleteTransaction(userTransactions[index].id);}, icon: Icon(Icons.delete),color: Colors.red),
                                          
                                        ),
                                   ],

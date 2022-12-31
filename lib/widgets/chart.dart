@@ -55,20 +55,24 @@ class Chart extends StatelessWidget {
           elevation: 18,
           
           
-          child: Row(   
-             mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: groupedTransaction.map((data) {
-                print(data['amount']);
-                double sp = (data['amount'] as double) / maxSpending;
-                String day='${data['day']}';
-            return Container(
-              child: Bar(
-                label: day,
-                spendingAmount: data['amount'] as double,
-                spendingPercent: sp,
-              ),
-            );
-          }).toList())) ,
+          child: FittedBox(
+            child: 
+                          Row(   
+                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: groupedTransaction.map((data) {
+                    print(data['amount']);
+                    double sp = (data['amount'] as double) / maxSpending;
+                    String day='${data['day']}';
+                return Container(
+                  child: Bar(
+                    label: day,
+                    spendingAmount: data['amount'] as double,
+                    spendingPercent: sp,
+                  ),
+                );
+              }).toList()),
+            
+          )) ,
       ),
     );
   }
