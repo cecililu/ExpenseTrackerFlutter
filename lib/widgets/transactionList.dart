@@ -12,7 +12,7 @@ class TransactionList extends StatelessWidget {
         child: userTransactions.isEmpty
             ? Column(
                 children: <Widget>[
-                  Text("No data Added YetZZZZZZ"),
+                  Text("No data Added YetZZZZZ"),
                   SizedBox(height: 10,),
                   
                 ],
@@ -47,20 +47,40 @@ class TransactionList extends StatelessWidget {
                           Container(
                             child: Column(
                               children: <Widget>[
-                                Text(
-                                  userTransactions[index].title,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w900,
-                                      fontSize: 20,
-                                      color: Colors.black),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(vertical:2.0,horizontal: 0),
+                                          child: Text(
+                                            userTransactions[index].title,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w900,
+                                                fontSize: 20,
+                                                color: Colors.black),
+                                          ),
+                                        ),
+                                        Text(
+                                            DateFormat('yMMMMEEEEd')
+                                                .format(userTransactions[index].date),
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w800,
+                                                fontSize: 10,
+                                                color: Colors.grey,)),
+                                      ],
+                                    ),
+                                       Padding(
+                                        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 12),
+                                         child:
+                                           IconButton(onPressed: (){}, icon: Icon(Icons.delete),color: Colors.red),
+                                         
+                                       ),
+                                  ],
                                 ),
-                                Text(
-                                    DateFormat('yMMMMEEEEd')
-                                        .format(userTransactions[index].date),
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w800,
-                                        fontSize: 10,
-                                        color: Colors.grey)),
+                                        
+                                  
                               ],
                             ),
                           )
